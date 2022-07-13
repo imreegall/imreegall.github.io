@@ -13,7 +13,7 @@ h3,
 h4,
 h5,
 h6 {
-    line-height: 1;
+    line-height: 1.2;
 }
 
 a {
@@ -491,32 +491,27 @@ footer {
 @media (min-width: 1280px) {
     h1 {
         font-weight: 600;
-        font-size: 92px;
+        font-size: 72px;
     }
 
     h2 {
         font-weight: 500;
-        font-size: 74px;
+        font-size: 48px;
     }
 
     h3 {
         font-weight: 500;
-        font-size: 56px;
+        font-size: 32px;
     }
 
     h4 {
         font-weight: 400;
-        font-size: 34px;
-    }
-
-    h5 {
-        font-weight: 400;
         font-size: 24px;
     }
 
-    h6 {
+    h5 {
         font-weight: 300;
-        font-size: 14px;
+        font-size: 18px;
     }
     
     .prodList {
@@ -545,7 +540,7 @@ footer {
         margin-left: 16px;
     }
 
-    .buttonsProd > h2 {
+    .buttonsProd > *:first-child {
         display: none;
     }
 
@@ -644,9 +639,9 @@ footer {
     }
 
     .tags > * {
-        font-weight: 400;
-        font-size: 16px;
-        line-height: 16px;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 1.2;
     }
 }
 
@@ -672,7 +667,7 @@ footer {
     }
 
     h5 {
-        font-weight: 400;
+        font-weight: 300;
         font-size: 12px;
     }
 
