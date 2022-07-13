@@ -617,8 +617,8 @@ footer {
     }
 
     .aboutMe > aside {
-        align-items: center;
         flex-direction: row-reverse;
+        align-items: center;
     }
 
     .aboutMe > aside > img {
