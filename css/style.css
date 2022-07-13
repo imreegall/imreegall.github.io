@@ -589,8 +589,8 @@ footer {
     }
 
     .specialWord {
-        font-size: 60px;
-        line-height: 71px;
+        font-size: 48px;
+        line-height: 1.2;
     }
 
     .specialWord::before {
@@ -764,7 +764,7 @@ footer {
 
     .specialWord {
         font-size: 32px;
-        line-height: 38px;
+        line-height: 1.2;
     }
 
     .specialWord::before {
