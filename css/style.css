@@ -425,6 +425,11 @@ menu > *:last-of-type {
 
 .aboutMe > aside {
     display: flex;
+    justify-content: center;
+}
+
+.information {
+    width: 100%;
 }
 
 .information > span {
