@@ -4,26 +4,38 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Nature Blog</title>
     <link rel="stylesheet" href="style/main.css">
+    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
 </head>
 <body>
+    <input type="checkbox" id="darkTheme">
     <header>
-        <input type="checkbox" id="menu">
-        <label for="menu">
-            <img class="burger" src="svg/burger.svg" alt="">
-        </label>
+        <input type="checkbox" id="burger">
+        <div class="menu">
+            <ul>
+                <li><a href=""><h4>Vocano</h4></a></li>
+                <li><a href=""><h4>Peninsula</h4></a></li>
+                <li><a href=""><h4>Desert</h4></a></li>
+                <li><a href=""><h4>Mountain</h4></a></li>
+                <li><a href=""><h4>Canyon</h4></a></li>
+                <li><a href="" id="choose"><h4>Hill</h4></a></li>
+                <li><a href=""><h4>Bay</h4></a></li>
+            </ul>
+        </div>
         <ul>
+            <label for="burger" class="burgerLabel"></label>
             <li><a href=""><h4>Vocano</h4></a></li>
             <li><a href=""><h4>Peninsula</h4></a></li>
             <li><a href=""><h4>Desert</h4></a></li>
             <li><a href=""><h4>Mountain</h4></a></li>
             <li><a href=""><h4>Canyon</h4></a></li>
-            <li id="choose"><a href=""><h4>Hill</h4></a></li>
+            <li><a href="" id="choose"><h4>Hill</h4></a></li>
             <li><a href=""><h4>Bay</h4></a></li>
+            <label for="darkTheme" class="darkTheme"></label>
         </ul>
+        <hr>
     </header>
-    <hr>
     <main>
         <section class="title">
             <h1>Discover Beauty around the world</h1>

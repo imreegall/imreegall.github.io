@@ -1,7 +1,8 @@
 @import 'reset';
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Rubik&display=swap');
 
-$gray: rgba(0, 0, 0, 0.5);
+$opacity_black: rgba(0, 0, 0, 0.5);
+$opacity_white: rgba(255, 255, 255, 0.5);
 
 @mixin flex($justify: false, $align: false) {
     display: flex;
@@ -58,7 +59,7 @@ h4 {
     font-weight: 400;
     font-size: 18px;
     line-height: 28px;
-    color: $gray;
+    color: $opacity_black;
 }
 
 h5 {
@@ -69,67 +70,177 @@ h5 {
 }
 
 body {
-    background-color: white;
     @include flex(false, center);
     flex-direction: column;
+    min-height: 100vh;
 
-    @media (min-width: 768px) {
-        padding: 42px 32px;
-    }
+    #darkTheme {
+        display: none;
 
-    @media (max-width: 767px) {
-        padding: 42px 16px;
-    }
+        &:checked {
+            ~ * {
+                background-color: black;
+                color: white;
 
-    > * {
-        @media (min-width: 1440px) {
-            margin-bottom: 65px;
-        }
+                h4,
+                .otherPages h5 {
+                    color: $opacity_white;
+                }
 
-        @media (max-width: 1439px) {
-            margin-bottom: 32px;
+                .description a {
+                    border-color: white;
+
+                    h4 {
+                        color: white;
+                    }
+
+                    &:hover {
+                        background-color: rgba(255, 255, 255, 0.307);
+                    }
+                }
+            }
+
+            ~ header {
+                @media (max-width: 1439px) {
+                    .menu {
+                        background-color: black;
+                        border-right: 1px solid white;
+                        transition: all 0.2s ease-in-out;
+                    }
+                }
+
+                #choose {
+                    background-color: white;
+    
+                        > * {
+                            color: black;
+                        }
+                }
+
+                .darkTheme {
+                    background-image: url(../svg/sun.svg);
+                }
+
+                li > a:hover {
+                    background-color: rgba(255, 255, 255, 0.418);
+                    
+                    h4 {
+                        color: white;
+                    }
+                }
+
+                @media (max-width: 1439px) {
+                    .burgerLabel {
+                        background-image: url(../svg/burgerDark.svg);
+                    }
+                }
+
+                hr {
+                    background-color: rgba(255, 255, 255, 0.386);
+                }
+            }
         }
     }
 
     header {
-        @include flex(space-between);
+        @include flex(center, center);
+        flex-direction: column;
+        width: 100%;
 
-        @media (min-width: 1440px) {
-            width: 1028px;
+        @media (min-width: 768px) {
+            padding: 42px 32px 0;
+        }
+    
+        @media (max-width: 767px) {
+            padding: 42px 16px 0;
         }
 
-        @media (max-width: 1439px) {
-            width: 100%;
-        }
-
-        input {
+        #burger {
             display: none;
         }
 
-        label {
-            @media (min-width: 1440px) {
+        @media (min-width: 1440px) {
+            .menu {
                 display: none;
-            }
-
-            @media (max-width: 1439px) {
-                display: inline;
             }
         }
 
-        ul {
-            @media (min-width: 1440px) {
-                display: flex;
-                justify-content: space-between;
-                width: 100%;
+        @media (max-width: 1439px) {
+            #burger:checked {
+                ~ .menu {
+                    left: 0;
+                }
+            }
 
-                li {
+            .menu {
+                @include flex(center);
+                width: 200px;
+                height: 100vh;
+                position: absolute;
+                background-color: white;
+                top: 0;
+                left: -200px;
+                padding: 20vh 0;
+                border-right: 1px solid black;
+                transition: all 0.2s ease-in-out;
+    
+                > ul {
+                    @include flex(space-between, center);
+                    flex-direction: column;
+    
+                    li > a {
+                        display: block;
+                        padding: 10px 30px;
+                        @include border-radius(8px);
+        
+                        &#choose {
+                            background-color: black;
+        
+                            > * {
+                                color: white;
+                            }
+                        }
+        
+                        &:hover {
+                            background-color: rgba(0, 0, 0, 0.085);
+                        }
+                    }
+                }
+            }
+        }
+
+        > ul {
+            @include flex(space-between, center);
+
+            .burgerLabel {
+                @media (min-width: 1440px) {
+                    display: none;
+                }
+    
+                @media (max-width: 1439px) {
+                    display: block;
+                    background-image: url(../svg/burgerLight.svg);
+                    @include background-image-position();
+                    width: 24px;
+                    height: 16px;
+                    cursor: pointer;
+                    z-index: 2;
+                }
+            }
+
+            @media (min-width: 1440px) {
+                width: 1028px;
+                margin-bottom: 65px;
+
+                li > a {
+                    display: block;
                     padding: 10px 30px;
                     @include border-radius(8px);
     
                     &#choose {
                         background-color: black;
     
-                        > * > * {
+                        > * {
                             color: white;
                         }
                     }
@@ -141,22 +252,59 @@ body {
             }
 
             @media (max-width: 1439px) {
-                display: none;
+                width: 100%;
+                margin-bottom: 32px;
+
+                li {
+                    display: none;
+                }
+            }
+
+            .darkTheme {
+                background-image: url(../svg/moon.svg);
+                @include background-image-position();
+                width: 32px;
+                height: 32px;
+                display: block;
             }
         }
-    }
 
-    hr {
-        width: 100%;
-        height: 1px;
-        background-color: rgba(0, 0, 0, 0.2);
+        hr {
+            width: 100%;
+            height: 1px;
+            background-color: rgba(0, 0, 0, 0.2);
+        }
     }
 
     main {
         @include flex(false, center);
         flex-direction: column;
+        flex: 1;
+        width: 100%;
 
-        > * {
+        @media (min-width: 768px) {
+            padding: 0 32px;
+        }
+    
+        @media (max-width: 767px) {
+            padding: 0 16px;
+        }
+
+        @media (min-width: 1440px) {
+            padding-bottom: 65px;
+            padding-top: 65px;
+        }
+
+        @media (max-width: 1439px) {
+            padding-bottom: 32px;
+            padding-top: 32px;
+        }
+
+        section {
+            &:nth-last-child(n + 2) {
+                margin-bottom: 65px;
+            }
+
             @media (min-width: 1440px) {
                 width: 1028px;
             }
@@ -164,13 +312,7 @@ body {
             @media (max-width: 1439px) {
                 width: 100%;
             }
-        }
 
-        > *:nth-last-child(n + 2) {
-            margin-bottom: 65px;
-        }
-
-        section {
             &.title {
                 text-align: center;
 
@@ -356,7 +498,6 @@ body {
                     url(../img/hillview.png);
                 @include background-image-position();
                 @include border-radius(8px);
-                width: 100%;
                 color: white;
 
                 @media (min-width: 1440px) {
@@ -444,5 +585,27 @@ body {
             }
         }
     }
-}
 
+    footer {
+        @include flex(center);
+        width: 100%;
+
+        @media (min-width: 768px) {
+            padding: 0 32px 42px;
+        }
+    
+        @media (max-width: 767px) {
+            padding: 0 16px 42px;
+        }
+
+        > * {
+            @media (min-width: 1440px) {
+                margin-bottom: 65px;
+            }
+    
+            @media (max-width: 1439px) {
+                margin-bottom: 32px;
+            }
+        }
+    }
+}
