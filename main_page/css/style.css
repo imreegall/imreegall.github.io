@@ -253,20 +253,24 @@ menu > *:last-of-type {
 
 .prodList > * > .img {
     border-radius: 15px;
-    padding: 30px 15px;
+    padding: 30px 15px 20px;
 }
 
 .prodList .img > img {
     width: 100%;
-    height: 100%;
+    height: 200px;
     object-fit: cover;
 }
 
-.prod1 > .img {
-    background-color: rgb(209, 183, 99);
+.prod3 > .img {
+    background-color: rgb(141, 175, 162);
 }
 
 .prod2 > .img {
+    background-color: rgb(209, 183, 99);
+}
+
+.prod1 > .img {
     background-color: rgb(112, 215, 255);
 }
 
@@ -315,6 +319,23 @@ menu > *:last-of-type {
 
 .JS::after {
     content: "JS";
+}
+
+.SASS {
+    background-color: #ff92f8;
+}
+
+.SASS::after {
+    content: "SASS";
+}
+
+.Mobile {
+    background-color: #fff982;
+    color: black;
+}
+
+.Mobile::after {
+    content: "Mobile";
 }
 
 .links {
@@ -686,6 +707,10 @@ footer {
 
     .prodList > * > .img {
         height: 300px;
+    }
+
+    .prodList > * > .img > img {
+        height: 100%;
     }
 
     header, main {
