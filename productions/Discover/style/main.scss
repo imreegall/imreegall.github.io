@@ -74,6 +74,15 @@ body {
     flex-direction: column;
     min-height: 100vh;
 
+    > * {
+        transition: all 0.2s ease-in-out;
+    }
+
+    h4,
+    .otherPages h5 {
+        transition: all 0.2s ease-in-out;
+    }
+
     #darkTheme {
         display: none;
 
@@ -105,7 +114,6 @@ body {
                     .menu {
                         background-color: black;
                         border-right: 1px solid white;
-                        transition: all 0.2s ease-in-out;
                     }
                 }
 
@@ -167,6 +175,25 @@ body {
 
         @media (max-width: 1439px) {
             #burger:checked {
+                ~ ul {
+                    @media (max-width: 1439px) {
+                        justify-content: end;
+                    }
+
+                    > .burgerLabel {
+                        position: fixed;
+                        top: 42px;
+
+                        @media (min-width: 768px) {
+                            left: 32px;
+                        }
+                    
+                        @media (max-width: 767px) {
+                            left: 16px;
+                        }
+                    }
+                }
+
                 ~ .menu {
                     left: 0;
                 }
@@ -176,7 +203,7 @@ body {
                 @include flex(center);
                 width: 200px;
                 height: 100vh;
-                position: absolute;
+                position: fixed;
                 background-color: white;
                 top: 0;
                 left: -200px;
@@ -210,7 +237,7 @@ body {
         }
 
         > ul {
-            @include flex(space-between, center);
+            @include flex(space-between, flex-start);
 
             .burgerLabel {
                 @media (min-width: 1440px) {
@@ -225,6 +252,7 @@ body {
                     height: 16px;
                     cursor: pointer;
                     z-index: 2;
+                    transition: all 0.2s ease-in-out;
                 }
             }
 
@@ -239,9 +267,11 @@ body {
     
                     &#choose {
                         background-color: black;
+                        transition: all 0.2s ease-in-out;
     
                         > * {
                             color: white;
+                            transition: all 0.2s ease-in-out;
                         }
                     }
     
@@ -266,6 +296,8 @@ body {
                 width: 32px;
                 height: 32px;
                 display: block;
+                cursor: pointer;
+                transition: all 0.2s ease-in-out;
             }
         }
 
@@ -273,6 +305,7 @@ body {
             width: 100%;
             height: 1px;
             background-color: rgba(0, 0, 0, 0.2);
+            transition: all 0.2s ease-in-out;
         }
     }
 
@@ -391,13 +424,16 @@ body {
                             padding: 8px 30px;
                             border: 1px solid black;
                             @include border-radius(4px);
+                            transition: all 0.2s ease-in-out;
 
                             > * {
                                 color: black;
+                                transition: all 0.2s ease-in-out;
                             }
 
                             &:hover {
                                 background-color: rgba(0, 0, 0, 0.085);
+                                transition: all 0.2s ease-in-out;
                             }
                         }
 
